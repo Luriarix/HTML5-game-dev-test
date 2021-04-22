@@ -11,38 +11,47 @@
     <div>
         <div>
             <img id="safe1-image" class="safe image row1 column1" src="graphics/safe_minigame.png">
+            <img id="safe1-image-win" class="safe image row1 column1">
             <div id="safe1" class="safe image column1 row1 safeNumber">1</div>
         </div>
         <div>
             <img id="safe2-image" class="safe image row1 column2" src="graphics/safe_minigame.png">
+            <img id="safe2-image-win" class="safe image row1 column2">
             <div id="safe2" class="safe image column2 row1 safeNumber">2</div>
         </div>
         <div>
             <img id="safe3-image" class="safe image row1 column3" src="graphics/safe_minigame.png">
+            <img id="safe3-image-win" class="safe image row1 column3">
             <div id="safe3" class="safe image column3 row1 safeNumber">3</div>
         </div>
         <div>
             <img id="safe4-image" class="safe image row2 column1" src="graphics/safe_minigame.png">
+            <img id="safe4-image-win" class="safe image row2 column1">
             <div id="safe4" class="safe image column1 row2 safeNumber">4</div>
         </div>
         <div>
             <img id="safe5-image" class="safe image row2 column2" src="graphics/safe_minigame.png">
+            <img id="safe5-image-win" class="safe image row2 column2">
             <div id="safe5" class="safe image column2 row2 safeNumber">5</div>
         </div>
         <div>
             <img id="safe6-image" class="safe image row2 column3" src="graphics/safe_minigame.png">
+            <img id="safe6-image-win" class="safe image row2 column3">
             <div id="safe6" class="safe image column3 row2 safeNumber">6</div>
         </div>
         <div>
             <img id="safe7-image" class="safe image row3 column1" src="graphics/safe_minigame.png">
+            <img id="safe7-image-win" class="safe image row3 column1">
             <div id="safe7" class="safe image column1 row3 safeNumber">7</div>
         </div>
         <div>
             <img id="safe8-image" class="safe image row3 column2" src="graphics/safe_minigame.png">
+            <img id="safe8-image-win" class="safe image row3 column2">
             <div id="safe8" class="safe image column2 row3 safeNumber">8</div>
         </div>
         <div>
             <img id="safe9-image" class="safe image row3 column3" src="graphics/safe_minigame.png">
+            <img id="safe9-image-win" class="safe image row3 column3">
             <div id="safe9" class="safe image column3 row3 safeNumber">9</div>
         </div>
     </div>
@@ -57,7 +66,7 @@ TOUCH THE DIAL TO SPIN YOUR 4 DIGIT COMBINATION</pre>
         </div>
         <div class="lights" style="top: 185px; left: 375px;"></div>
         <div class="lights" style="top: 185px; left: 485px;"></div>
-        <div class="button" onclick="settingSafes()"></div>
+        <div class="button" onclick="settingSafes(getNumber())"></div>
     </div>
 
 </body>
