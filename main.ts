@@ -35,30 +35,29 @@ function showCode(luck : number) {
 
 
 
+
 function settingSafes(lucky : number) {
 
   var luck = lucky + 1;
+  var safe_to_open = document.getElementById('safe' + String(luck));
+  var safe_value = Number(safe_to_open.innerText)
 
-  for (let index = 1; index < 10; index++) {
-    if (index == luck) {
-      var safe = document.getElementById('safe' + String(index));
-      var safe_check = Number(safe.innerText);
+  console.log(luck);
 
-      if (safe_check == luck) {
-        showCode(luck)
-      }
-      else {
-        luck = getNumber();
+  if (safe_value == luck) {
+    showCode(luck);
+    document.getElementById('safe' + String(luck)).innerText = 'try again';
+
+    for (let i = 1; i < 10; i++) {
+      var safe_to_check = document.getElementById('safe' + String(i)).innerText;
+      if (luck != i) {
+        if (safe_to_open.innerText == safe_to_check) {
+          console.log('WIN!!!');
+        }
       }
     }
-
   }
-
-  // code = '';
-  console.log(luck);
-  // var canvas = <HTMLCanvasElement> document.getElementById('application'),
-  // context = canvas.getContext('2d');
-  // context.font = "40px Titan";
-  // context.textBaseline = 'top';
-  // context.fillText("1 - - -", 355, 110);
+  else {
+    settingSafes(getNumber());
+  }
   }

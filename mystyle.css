@@ -25,7 +25,18 @@ canvas{
     height: 80px;
     width: 80px;
     position:absolute;
+}
 
+.safe.image.win{
+    /* background-image: url(graphics/coins.png); */
+    margin-top: 1px;
+    margin-left: -10px;
+    overflow: hidden;
+}
+.safe.image.win.crop{
+    max-height: 90px;
+    margin-left: 0px;
+    width: 190px;
 }
 
 .safe.image.column1{

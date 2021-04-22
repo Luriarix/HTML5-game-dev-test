@@ -10,39 +10,40 @@ function getNumber() {
     var luck = Math.floor(Math.random() * 9);
     return luck;
 }
-function settingSafes(lucky) {
+function showCode(luck) {
     var code = document.getElementById('code').innerText;
+    var toggled = false;
+    var temp = '';
+    for (var index = 0; index < code.length; index++) {
+        var temp2 = code[index];
+        if (temp2 == '-' && toggled == false) {
+            temp += String(luck);
+            toggled = true;
+        }
+        else {
+            temp += temp2;
+        }
+    }
+    document.getElementById('code').innerText = temp;
+}
+function settingSafes(lucky) {
     var luck = lucky + 1;
-    for (var index = 1; index < 10; index++) {
-        if (index == luck) {
-            var safe = document.getElementById('safe' + String(index));
-            var safe_check = Number(safe.innerText);
-            if (safe_check == luck) {
-                console.log('Lucky U!');
-                var toggled = false;
-                var temp = '';
-                for (var index_1 = 0; index_1 < code.length; index_1++) {
-                    var temp2 = code[index_1];
-                    if (temp2 == '-' && toggled == false) {
-                        temp += String(luck);
-                        toggled = true;
-                    }
-                    else {
-                        temp += temp2;
-                    }
+    var safe_to_open = document.getElementById('safe' + String(luck));
+    var safe_value = Number(safe_to_open.innerText);
+    console.log(luck);
+    if (safe_value == luck) {
+        showCode(luck);
+        document.getElementById('safe' + String(luck)).innerText = 'try again';
+        for (var i = 1; i < 10; i++) {
+            var safe_to_check = document.getElementById('safe' + String(i)).innerText;
+            if (luck != i) {
+                if (safe_to_open.innerText == safe_to_check) {
+                    console.log('WIN!!!');
                 }
-                document.getElementById('code').innerText = temp;
-            }
-            else {
-                luck = getNumber();
             }
         }
     }
-    // code = '';
-    console.log(luck);
-    // var canvas = <HTMLCanvasElement> document.getElementById('application'),
-    // context = canvas.getContext('2d');
-    // context.font = "40px Titan";
-    // context.textBaseline = 'top';
-    // context.fillText("1 - - -", 355, 110);
+    else {
+        settingSafes(getNumber());
+    }
 }
